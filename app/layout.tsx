@@ -14,10 +14,12 @@ export default function RootLayout({
         <title>Let's Get Reel</title>
       </head>
       <body
-        className="antialiased font-sans p-6"
+        className="antialiased font-sans p-4"
       >
-        <h1 className="flex text-3xl">Let's Get Reel</h1>
-        {children}
+        <div>
+          <h1 className="text-center text-3xl mb-2">Let's Get Reel</h1>
+          {children}
+        </div>
       </body>
     </html>
   );

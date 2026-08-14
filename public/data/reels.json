@@ -1,10 +1,11 @@
 [
   {
     "id": 10001,
-    "source": "/images/pedal-meowdulator.jpg",
+    "source": "/videos/reel-wilderswil.mp4",
     "description": "Early morning walk through a Swiss village on New Year's Day, 2022.",
     "location": "Wilderswil, Switzerland",
     "music_title": "Easy Like Sunday Morning",
-    "music_artist": "Faith No More"
+    "music_artist": "Faith No More",
+    "date": "January 01, 2022"
   }
 ]
