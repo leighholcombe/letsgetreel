@@ -1,0 +1,118 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" />
+  <title>Button stuff</title>
+  <style type="text/css">
+    body { margin: 0; background: #333; }
+    main { margin: 40px auto; max-width: 500px; }
+    main > div { display: flex; justify-content: space-between; gap: 2px; }
+    button {
+      width: 25%;
+      height: 56px;
+      border-radius: 28px;
+      background: linear-gradient(to bottom, #3f4955 0%,#171a21 100%);
+      border-left: 1px solid #5a9787;
+      border-top: 1px solid #5a9787;
+      border-right: 0;
+      border-bottom: 0;
+      filter: drop-shadow(2px 2px #000);
+      padding: 0;
+    }
+    button:hover {
+      background: linear-gradient(to top, #3f4955 0%,#171a21 100%);
+    }
+    button > span { visibility: hidden; }
+    #pause_control { display: none; }
+    .symbol-wrapper { display: flex; justify-content: center; padding: 11px 12px; }
+    .symbol-wrapper.pause-control { gap: 8px; }
+    .pause-bar { width: 8px; height: 32px; background: #949ab0; }
+    .arrow-right {
+      width: 0; 
+      height: 0; 
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 32px solid #949ab0;
+    }
+    .arrow-left {
+      width: 0; 
+      height: 0; 
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-right: 32px solid #949ab0;
+    }
+    .info-circle {
+      border-inline: 2px solid #949ab0;
+      border-radius: 100%;
+      width: 32px;
+      height: 32px;
+    }
+    .info-circle > span {
+      font-family: serif;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      color: #949ab0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div>
+      <button aria-label="Previous video">
+        <div class="symbol-wrapper">
+          <div class="pause-bar"></div>
+          <div class="arrow-left"></div>
+        </div>
+        <span>Previous video</span>
+      </button>
+      <button aria-label="Play or pause" id="play_pause">
+        <div class="symbol-wrapper" id="play_control">
+          <div class="arrow-right"></div>
+        </div>
+        <div class="symbol-wrapper pause-control" id="pause_control">
+          <div class="pause-bar"></div>
+          <div class="pause-bar"></div>
+        </div>
+        <span id="play_pause_text">Play</span>
+      </button>
+      <button aria-label="Get info">
+        <div class="symbol-wrapper">
+          <div class="info-circle">
+            <span>i</span>
+          </div>
+        </div>
+        <span>Get info</span>
+      </button>
+      <button aria-label="Next">
+        <div class="symbol-wrapper">
+          <div class="arrow-right"></div>
+          <div class="pause-bar"></div>
+        </div>
+        <span>Next video</span>
+      </button>
+    </div>
+  </main>
+  <script>
+    const playPause = document.getElementById("play_pause");
+    const playControl = document.getElementById('play_control');
+    const pauseControl = document.getElementById('pause_control');
+    const playPauseText = document.getElementById('play_pause_text');
+    let initialState = "paused";
+    playPause.addEventListener("click", (event) => {
+      if(initialState == "paused") {
+        playControl.style.display = "none";
+        pauseControl.style.display = "flex";
+        initialState = "playing";
+        playPauseText.textContent = "Pause";
+      } else {
+        pauseControl.style.display = "none";
+        playControl.style.display = "flex";
+        initialState = "paused";
+        playPauseText.textContent = "Play";
+      }
+    });
+  </script>
+</body>
+</html>

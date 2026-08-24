@@ -7,3 +7,7 @@ export interface Reel {
   music_artist: Array<string>;
   date: string;
 }
+
+export interface PageProps {
+  searchParams: Promise<{ index?: string }>;
+}

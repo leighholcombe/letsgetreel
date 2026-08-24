@@ -7,5 +7,14 @@
     "music_title": "Easy Like Sunday Morning",
     "music_artist": "Faith No More",
     "date": "January 01, 2022"
+  },
+  {
+    "id": 10002,
+    "source": "/videos/reel-bouldersnow.mp4",
+    "description": "Surprise snowstorm in late May, captured on The Hill in Boulder.",
+    "location": "Boulder, Colorado",
+    "music_title": "Ice Cavern",
+    "music_artist": "Koji Kondo",
+    "date": "May 20, 2022"
   }
 ]
