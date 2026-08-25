@@ -6,11 +6,9 @@
   <style type="text/css">
     body { margin: 0; background: #333; }
     main { margin: 40px auto; max-width: 500px; }
-    main > div { display: flex; justify-content: space-between; gap: 2px; }
-    button {
+    .button-group { display: flex; justify-content: space-between; gap: 2px; }
+    button, a {
       width: 25%;
-      height: 56px;
-      border-radius: 28px;
       background: linear-gradient(to bottom, #3f4955 0%,#171a21 100%);
       border-left: 1px solid #5a9787;
       border-top: 1px solid #5a9787;
@@ -19,13 +17,15 @@
       filter: drop-shadow(2px 2px #000);
       padding: 0;
     }
-    button:hover {
+    #iteration_one button,
+    #iteration_one a { border-radius: 28px; }
+    button:hover, a:hover {
       background: linear-gradient(to top, #3f4955 0%,#171a21 100%);
     }
-    button > span { visibility: hidden; }
-    #pause_control { display: none; }
+    button > span,
+    a > span { visibility: hidden; height: 0; display: block; }
     .symbol-wrapper { display: flex; justify-content: center; padding: 11px 12px; }
-    .symbol-wrapper.pause-control { gap: 8px; }
+    .symbol-wrapper.pause-control { gap: 8px; display: none; }
     .pause-bar { width: 8px; height: 32px; background: #949ab0; }
     .arrow-right {
       width: 0; 
@@ -55,63 +55,108 @@
       line-height: 32px;
       color: #949ab0;
     }
+    p { color: #fff; font-size: 2em; }
   </style>
 </head>
 <body>
   <main>
-    <div>
-      <button aria-label="Previous video">
-        <div class="symbol-wrapper">
-          <div class="pause-bar"></div>
-          <div class="arrow-left"></div>
-        </div>
-        <span>Previous video</span>
-      </button>
-      <button aria-label="Play or pause" id="play_pause">
-        <div class="symbol-wrapper" id="play_control">
-          <div class="arrow-right"></div>
-        </div>
-        <div class="symbol-wrapper pause-control" id="pause_control">
-          <div class="pause-bar"></div>
-          <div class="pause-bar"></div>
-        </div>
-        <span id="play_pause_text">Play</span>
-      </button>
-      <button aria-label="Get info">
-        <div class="symbol-wrapper">
-          <div class="info-circle">
-            <span>i</span>
+    <div id="iteration_one">
+      <p>Iteration 1</p>
+      <div class="button-group">
+        <a href="#">
+          <div class="symbol-wrapper">
+            <div class="pause-bar"></div>
+            <div class="arrow-left"></div>
           </div>
-        </div>
-        <span>Get info</span>
-      </button>
-      <button aria-label="Next">
-        <div class="symbol-wrapper">
-          <div class="arrow-right"></div>
-          <div class="pause-bar"></div>
-        </div>
-        <span>Next video</span>
-      </button>
+          <span>Previous video</span>
+        </a>
+        <button class="play-pause">
+          <div class="symbol-wrapper play-control">
+            <div class="arrow-right"></div>
+          </div>
+          <div class="symbol-wrapper pause-control">
+            <div class="pause-bar"></div>
+            <div class="pause-bar"></div>
+          </div>
+          <span class="play-pause-text">Play</span>
+        </button>
+        <button>
+          <div class="symbol-wrapper">
+            <div class="info-circle">
+              <span>i</span>
+            </div>
+          </div>
+          <span>Get info</span>
+        </button>
+        <a href="#">
+          <div class="symbol-wrapper">
+            <div class="arrow-right"></div>
+            <div class="pause-bar"></div>
+          </div>
+          <span>Next video</span>
+        </a>
+      </div>
+    </div>
+    <div id="iteration_two">
+      <p>Iteration 2</p>
+      <div class="button-group">
+        <a href="#">
+          <div class="symbol-wrapper">
+            <div class="pause-bar"></div>
+            <div class="arrow-left"></div>
+          </div>
+          <span>Previous video</span>
+        </a>
+        <button class="play-pause">
+          <div class="symbol-wrapper play-control">
+            <div class="arrow-right"></div>
+          </div>
+          <div class="symbol-wrapper pause-control">
+            <div class="pause-bar"></div>
+            <div class="pause-bar"></div>
+          </div>
+          <span class="play-pause-text">Play</span>
+        </button>
+        <button>
+          <div class="symbol-wrapper">
+            <div class="info-circle">
+              <span>i</span>
+            </div>
+          </div>
+          <span>Get info</span>
+        </button>
+        <a href="#">
+          <div class="symbol-wrapper">
+            <div class="arrow-right"></div>
+            <div class="pause-bar"></div>
+          </div>
+          <span>Next video</span>
+        </a>
+      </div>
     </div>
   </main>
   <script>
-    const playPause = document.getElementById("play_pause");
-    const playControl = document.getElementById('play_control');
-    const pauseControl = document.getElementById('pause_control');
-    const playPauseText = document.getElementById('play_pause_text');
-    let initialState = "paused";
-    playPause.addEventListener("click", (event) => {
-      if(initialState == "paused") {
-        playControl.style.display = "none";
-        pauseControl.style.display = "flex";
-        initialState = "playing";
-        playPauseText.textContent = "Pause";
-      } else {
-        pauseControl.style.display = "none";
-        playControl.style.display = "flex";
-        initialState = "paused";
-        playPauseText.textContent = "Play";
-      }
+    const playPause = document.querySelectorAll('.play-pause');
+  
+    playPause.forEach((element) => {
+      let playControl = element.querySelector('.play-control');
+      let pauseControl = element.querySelector('.pause-control');
+      let playPauseText = element.querySelector('.play-pause-text');
+      let initialState = "paused";
+    
+      element.addEventListener("click", (event) => {
+        if(initialState == "paused") {
+          playControl.style.display = "none";
+          pauseControl.style.display = "flex";
+          initialState = "playing";
+          playPauseText.textContent = "Pause";
+        } else {
+          pauseControl.style.display = "none";
+          playControl.style.display = "flex";
+          initialState = "paused";
+          playPauseText.textContent = "Play";
+        }
+      });
     });
   </script>
 </body>
