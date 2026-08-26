@@ -22,8 +22,7 @@
     button:hover, a:hover {
       background: linear-gradient(to top, #3f4955 0%,#171a21 100%);
     }
-    button > span,
-    a > span { visibility: hidden; height: 0; display: block; }
+    span.allytext { visibility: hidden; height: 0; display: block; }
     .symbol-wrapper { display: flex; justify-content: center; padding: 11px 12px; }
     .symbol-wrapper.pause-control { gap: 8px; display: none; }
     .pause-bar { width: 8px; height: 32px; background: #949ab0; }
@@ -56,6 +55,27 @@
       color: #949ab0;
     }
     p { color: #fff; font-size: 2em; }
+    #iteration_three button,
+    #iteration_three a {
+      border-radius: 10px;
+      border-bottom: 1px solid #6b281f;
+      border-left: 1px solid #754545;
+      border-right: 1px solid #95696a;
+      border-top: 1px solid #b18987;
+      border-inline: 1px solid #5a0000;
+      background: linear-gradient(to bottom, #720e16 0%,#99322b 9%,#9f1a09 22%,#c60700 92%,#9c0202 100%);
+      position: relative;
+    }
+    span.gelbutton {
+      display: block;
+      position: absolute;
+      left: 5px;
+      right: 5px;
+      height: 3px;
+      top: 3px;
+      background: linear-gradient(to bottom, #cbaaa1 0%, #bd7e77 100%);
+      border-radius: 3px;
+    }
   </style>
 </head>
 <body>
@@ -68,7 +88,7 @@
             <div class="pause-bar"></div>
             <div class="arrow-left"></div>
           </div>
-          <span>Previous video</span>
+          <span class="allytext">Previous video</span>
         </a>
         <button class="play-pause">
           <div class="symbol-wrapper play-control">
@@ -78,7 +98,7 @@
             <div class="pause-bar"></div>
             <div class="pause-bar"></div>
           </div>
-          <span class="play-pause-text">Play</span>
+          <span class="play-pause-text allytext">Play</span>
         </button>
         <button>
           <div class="symbol-wrapper">
@@ -86,14 +106,14 @@
               <span>i</span>
             </div>
           </div>
-          <span>Get info</span>
+          <span class="allytext">Get info</span>
         </button>
         <a href="#">
           <div class="symbol-wrapper">
             <div class="arrow-right"></div>
             <div class="pause-bar"></div>
           </div>
-          <span>Next video</span>
+          <span class="allytext">Next video</span>
         </a>
       </div>
     </div>
@@ -105,7 +125,7 @@
             <div class="pause-bar"></div>
             <div class="arrow-left"></div>
           </div>
-          <span>Previous video</span>
+          <span class="allytext">Previous video</span>
         </a>
         <button class="play-pause">
           <div class="symbol-wrapper play-control">
@@ -115,7 +135,7 @@
             <div class="pause-bar"></div>
             <div class="pause-bar"></div>
           </div>
-          <span class="play-pause-text">Play</span>
+          <span class="play-pause-text allytext">Play</span>
         </button>
         <button>
           <div class="symbol-wrapper">
@@ -123,14 +143,55 @@
               <span>i</span>
             </div>
           </div>
-          <span>Get info</span>
+          <span class="allytext">Get info</span>
         </button>
         <a href="#">
           <div class="symbol-wrapper">
             <div class="arrow-right"></div>
             <div class="pause-bar"></div>
           </div>
-          <span>Next video</span>
+          <span class="allytext">Next video</span>
+        </a>
+      </div>
+    </div>
+    <div id="iteration_three">
+      <p>Iteration 3</p>
+      <div class="button-group">
+        <a href="#">
+          <div class="symbol-wrapper">
+            <div class="pause-bar"></div>
+            <div class="arrow-left"></div>
+          </div>
+          <span class="allytext">Previous video</span>
+          <span class="gelbutton"></span>
+        </a>
+        <button class="play-pause">
+          <div class="symbol-wrapper play-control">
+            <div class="arrow-right"></div>
+          </div>
+          <div class="symbol-wrapper pause-control">
+            <div class="pause-bar"></div>
+            <div class="pause-bar"></div>
+          </div>
+          <span class="play-pause-text allytext">Play</span>
+          <span class="gelbutton"></span>
+        </button>
+        <button>
+          <div class="symbol-wrapper">
+            <div class="info-circle">
+              <span>i</span>
+            </div>
+          </div>
+          <span class="allytext">Get info</span>
+          <span class="gelbutton"></span>
+        </button>
+        <a href="#">
+          <div class="symbol-wrapper">
+            <div class="arrow-right"></div>
+            <div class="pause-bar"></div>
+          </div>
+          <span class="allytext">Next video</span>
+          <span class="gelbutton"></span>
         </a>
       </div>
     </div>
