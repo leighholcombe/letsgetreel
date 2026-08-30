@@ -76,6 +76,25 @@
       background: linear-gradient(to bottom, #cbaaa1 0%, #bd7e77 100%);
       border-radius: 3px;
     }
+    #iteration_four button,
+    #iteration_four a {
+      border-radius: 100%;
+      width: 80px;
+      height: 80px;
+      border: 4px solid #63ae67;
+      box-sizing: content-box;
+    }
+    #iteration_four .border-wrapper {
+      border: 2px solid #288335;
+      background: radial-gradient(circle at center top, #63ae67 0%,#63ae67 49%,#288335 51%,#288335 100%);;
+      border-radius: 100%;
+    }
+    #iteration_four .symbol-wrapper { padding: 22px 0; }
+    #iteration_four .info-circle { border-color: white; }
+    #iteration_four .info-circle > span { color: white; }
+    #iteration_four .pause-bar { background: white; }
+    #iteration_four .arrow-left { border-right: 32px solid white; }
+    #iteration_four .arrow-right { border-left: 32px solid white; }
   </style>
 </head>
 <body>
@@ -192,6 +211,51 @@
           </div>
           <span class="allytext">Next video</span>
           <span class="gelbutton"></span>
+        </a>
+      </div>
+    </div>
+    <div id="iteration_four">
+      <p>Iteration 4</p>
+      <div class="button-group">
+        <a href="#">
+          <div class="border-wrapper">
+            <div class="symbol-wrapper">
+              <div class="pause-bar"></div>
+              <div class="arrow-left"></div>
+            </div>
+            <span class="allytext">Previous video</span>
+          </div>
+        </a>
+        <button class="play-pause">
+          <div class="border-wrapper">
+            <div class="symbol-wrapper play-control">
+              <div class="arrow-right"></div>
+            </div>
+            <div class="symbol-wrapper pause-control">
+              <div class="pause-bar"></div>
+              <div class="pause-bar"></div>
+            </div>
+            <span class="play-pause-text allytext">Play</span>
+          </div>
+        </button>
+        <button>
+          <div class="border-wrapper">
+            <div class="symbol-wrapper">
+              <div class="info-circle">
+                <span>i</span>
+              </div>
+            </div>
+            <span class="allytext">Get info</span>
+          </div>
+        </button>
+        <a href="#">
+          <div class="border-wrapper">
+            <div class="symbol-wrapper">
+              <div class="arrow-right"></div>
+              <div class="pause-bar"></div>
+            </div>
+            <span class="allytext">Next video</span>
+          </div>
         </a>
       </div>
     </div>
